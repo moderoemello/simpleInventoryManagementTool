@@ -25,6 +25,7 @@ Run the installer and follow the setup instructions.
 Verify installation by opening Command Prompt (cmd) and running:
 
 node -v
+
 npm -v
 
 This should print the installed Node.js and npm versions.

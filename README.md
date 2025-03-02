@@ -67,13 +67,21 @@ This will load the inventory management UI.
 Project Structure
 
 /inventory-management
+
 │-- /public          # Contains frontend files (HTML, CSS, JS)
+
 │   │-- index.html   # Main UI
+
 │   │-- style.css    # Styling
+
 │   │-- script.js    # Frontend logic
+
 │-- server.js        # Express backend handling API requests
+
 │-- package.json     # Dependencies & scripts
+
 │-- inventory.db     # SQLite database file
+
 
 API Endpoints
 

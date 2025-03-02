@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory Management</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <!-- Left Panel: Form Inputs and Import/Export -->
+    <div class="panel left">
+      <h2>Inventory Control</h2>
+      <div class="mode-select">
+        <input type="radio" id="modeAdd" name="mode" value="add" checked>
+        <label for="modeAdd">Add/Update</label>
+        <input type="radio" id="modeRemove" name="mode" value="remove">
+        <label for="modeRemove">Decrement</label>
+      </div>
+
+      <div class="quick-add-toggle">
+        <input type="checkbox" id="quickAddMode" name="quickAddMode">
+        <label for="quickAddMode">Quick Add Mode (Barcode)</label>
+      </div>
+
+      <form id="productForm">
+        <label for="upc">UPC</label>
+        <input type="text" id="upc" name="upc" placeholder="Enter UPC..." autofocus autocomplete="off">
+
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Enter product name...">
+
+        <label for="quantity">Quantity</label>
+        <input type="number" id="quantity" name="quantity" min="1" placeholder="Enter quantity...">
+
+        <button type="submit" id="submitButton">Add/Update Product</button>
+      </form>
+
+      <hr>
+
+      <div class="import-export">
+        <h3>Import/Export</h3>
+        <form id="importForm" action="/api/import" method="post" enctype="multipart/form-data">
+          <input type="file" name="importFile" id="importFile">
+          <button type="submit">Import</button>
+        </form>
+        <div class="export-links">
+          <a href="/api/export/json">Export JSON</a>
+          <a href="/api/export/csv">Export CSV</a>
+          <a href="/api/export/sqlite">Export SQLite</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Panel: Display product info, low-stock list, and full product list -->
+    <div class="panel right">
+      <h2>Product Details</h2>
+      <div id="displayPanel">
+        <p><strong>UPC:</strong> <span id="displayUPC">—</span></p>
+        <p><strong>Name:</strong> <span id="displayName">—</span></p>
+        <p><strong>Quantity:</strong> <span id="displayQuantity">—</span></p>
+        <p id="lowStockIndicator" class="low-stock">Low Stock!</p>
+      </div>
+
+      <div id="lowStockListSection">
+        <h3>Low Stock Items</h3>
+        <ul id="lowStockList"></ul>
+      </div>
+
+      <div id="productListSection">
+        <h3>Product List</h3>
+        <input type="text" id="searchInput" placeholder="Search by UPC or Name">
+        <table id="productTable">
+          <thead>
+            <tr>
+              <th>UPC</th>
+              <th>Name</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody id="productTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

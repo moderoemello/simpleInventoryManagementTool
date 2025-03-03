@@ -33,10 +33,15 @@ This should print the installed Node.js and npm versions.
 then run this to clone this repo, install dependencies, start the local server:
 
 git clone https://github.com/moderoemello/simpleInventoryManagementTool.git
+
 cd simpleInventoryManagementTool/
+
 npm init -y 
+
 npm install multer sqlite3 express
+
 node server.js
+
 
 If successful, you will see:
 

@@ -80,17 +80,6 @@ GET /api/lowstock        # Fetch low-stock items
 GET /api/export/json     # Export inventory as JSON
 GET /api/export/csv      # Export inventory as CSV
 ```
-
-## Additional Commands
-
-To install additional packages:
-
-```sh
-npm install <package-name>
-```
-
-To stop the server, press `CTRL + C` in the terminal.
-
 ## License
 
 This project is open-source and free to use.
